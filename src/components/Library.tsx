@@ -87,8 +87,8 @@ export const Library: React.FC<LibraryProps> = ({
   return (
     <>
       {showWelcome && <WelcomeModal onDismiss={() => setDismissed(true)} />}
-      <div className="max-w-5xl mx-auto p-6 pt-12 md:p-12 h-screen overflow-y-auto">
-      <div className="max-w-6xl mx-auto p-6 md:p-12 min-h-screen overflow-y-auto">
+      <div className="min-h-screen w-full">
+        <div className="max-w-6xl mx-auto p-6 md:p-12">
       <div className="flex flex-col items-center text-center mb-16">
         <div className="text-[42px] font-thin tracking-[-1px] text-text-color mb-1 leading-none">
           Fixx<b className="text-orp font-semibold">ate</b>
