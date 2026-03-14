@@ -89,7 +89,10 @@ export const Library: React.FC<LibraryProps> = ({
       {showWelcome && <WelcomeModal onDismiss={() => setDismissed(true)} />}
       <div className="min-h-screen w-full">
         <div className="max-w-6xl mx-auto p-6 md:p-12">
-      <div className="flex flex-col items-center text-center mb-16">
+      <div className="flex flex-col items-center text-center mb-16 animate-in fade-in slide-in-from-top-4 duration-1000">
+        <div className="w-20 h-20 mb-8 p-1 bg-white dark:bg-white/10 rounded-[32px] shadow-2xl shadow-orp/20 flex items-center justify-center border border-border-color">
+          <img src="/logo.svg" alt="Fixxate Logo" className="w-14 h-14" />
+        </div>
         <div className="text-[42px] font-thin tracking-[-1px] text-text-color mb-1 leading-none">
           Fixx<b className="text-orp font-semibold">ate</b>
         </div>
