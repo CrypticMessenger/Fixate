@@ -1,8 +1,9 @@
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Upload, BookOpen, Trash2, ArrowRight } from 'lucide-react';
 import type { ParsedBook } from '../lib/types';
 import { getAllBooksFromDb, deleteBookFromDb } from '../lib/db';
 import { useProgress } from '../hooks/useProgress';
+import { WelcomeModal, isFirstVisit } from './WelcomeModal';
 import clsx from 'clsx';
 
 interface LibraryProps {
@@ -17,6 +18,7 @@ export const Library: React.FC<LibraryProps> = ({
   isParsing = false
 }) => {
   const [books, setBooks] = useState<ParsedBook[]>([]);
+  const [showWelcome, setShowWelcome] = useState(() => isFirstVisit());
   const { getProgress, clearProgress } = useProgress();
   const [isDragging, setIsDragging] = useState(false);
 
@@ -63,7 +65,9 @@ export const Library: React.FC<LibraryProps> = ({
   };
 
   return (
-    <div className="max-w-5xl mx-auto p-6 pt-12 md:p-12 h-screen overflow-y-auto">
+    <>
+      {showWelcome && <WelcomeModal onDismiss={() => setShowWelcome(false)} />}
+      <div className="max-w-5xl mx-auto p-6 pt-12 md:p-12 h-screen overflow-y-auto">
       <div className="flex flex-col items-start mb-8">
         <div className="text-[26px] font-light tracking-[-0.5px] text-text-color mb-1">
           Fix<b className="text-orp font-semibold">ate</b>
@@ -201,5 +205,6 @@ export const Library: React.FC<LibraryProps> = ({
         </div>
       </div>
     </div>
+    </>
   );
 };
