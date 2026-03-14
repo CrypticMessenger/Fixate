@@ -11,7 +11,7 @@ export interface ParsedBook {
   title: string;
   author?: string;
   coverImage?: string; // base64 or blob URL
-  format: 'epub' | 'pdf' | 'txt' | 'md';
+  format: 'epub' | 'pdf' | 'txt' | 'md' | 'url';
   chapters: ParsedChapter[];
   totalWords: number;
 }
